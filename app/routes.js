@@ -18,3 +18,7 @@ res.redirect('/new/name')
 router.post('/new/name', (req, res) => {
 res.redirect('/new/country')
 })
+
+router.post('/new/country', (req, res) => {
+res.redirect('/new/juggling-balls')
+})
