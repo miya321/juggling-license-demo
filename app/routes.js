@@ -8,7 +8,11 @@ const router = govukPrototypeKit.requests.setupRouter()
 
 // Add your routes here
 router.post('/new/email-address', (req, res) => {
-res.redirect('/new/code')
+    if(req.query.returnUrl) {
+    res.redirect(req.query.returnUrl)
+    } else {
+    res.redirect('/new/code')
+    }
 })
 
 router.post('/new/code', (req, res) => {
@@ -16,11 +20,19 @@ res.redirect('/new/name')
 })
 
 router.post('/new/name', (req, res) => {
-res.redirect('/new/country')
+    if(req.query.returnUrl) {
+    res.redirect(req.query.returnUrl)
+    } else {
+    res.redirect('/new/country')
+    }
 })
 
 router.post('/new/country', (req, res) => {
-res.redirect('/new/juggling-balls')
+    if(req.query.returnUrl){
+    res.redirect(req.query.returnUrl)
+    } else {
+    res.redirect('/new/juggling-balls')
+    }
 })
 
 router.post('/new/juggling-balls', (req, res) => {
